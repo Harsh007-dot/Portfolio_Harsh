@@ -1,0 +1,165 @@
+/*
+  style.css
+  Dramatic black & red gaming theme, responsive using Flexbox.
+  Colors: black background, light text, red accent.
+*/
+
+:root{
+  --bg: #0b0b0b;       /* deep black */
+  --text: #e6e6e6;     /* near-white */
+  --muted: #a8a8a8;    /* muted gray */
+  --accent: #ff1f2e;   /* vivid red accent */
+  --accent-dark: #8b0f1a;
+  --max-width: 960px;
+  --radius: 8px;
+}
+
+/* Global reset and box sizing */
+*{box-sizing: border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Layout container */
+.container{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:1.25rem;
+}
+
+/* Header */
+.site-header{
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  background:linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0.04) 100%);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+.intro h1{
+  margin:0;
+  font-size:1.6rem;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:var(--text);
+}
+.role{
+  margin:0.25rem 0 0;
+  color:var(--accent);
+  font-weight:700;
+  font-size:0.95rem;
+}
+.tagline{
+  margin:0.35rem 0 0;
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+.quick-contact{
+  display:flex;
+  gap:0.75rem;
+  align-items:center;
+}
+.quick-contact a{color:var(--muted);font-weight:600}
+
+/* Main content sections */
+.main-content{
+  padding-top:1.5rem;
+}
+.section{ /* common spacing for sections */
+  margin-bottom:1.25rem;
+}
+.section h2{
+  margin:0 0 0.6rem 0;
+  font-size:1.05rem;
+  color:var(--text);
+  display:inline-block;
+  border-bottom:3px solid transparent;
+  letter-spacing:0.6px;
+}
+
+/* Skills badges: use flexbox to wrap */
+.skills-list{
+  list-style:none;
+  padding:0;
+  margin:0.5rem 0 0 0;
+  display:flex;
+  gap:0.5rem;
+  flex-wrap:wrap;
+}
+.skills-list li{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  color:var(--text);
+  padding:0.45rem 0.8rem;
+  border-radius:999px;
+  font-size:0.9rem;
+  border:1px solid rgba(255,31,46,0.08);
+}
+
+/* Project articles */
+.project{
+  padding:0.95rem;
+  border-left:4px solid rgba(255,31,46,0.18);
+  background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.03));
+  margin-bottom:0.8rem;
+  border-radius:var(--radius);
+  box-shadow:0 6px 18px rgba(0,0,0,0.5);
+}
+.project h3{
+  margin:0 0 0.25rem 0;
+  font-size:1.02rem;
+  color:var(--text);
+}
+.project p{margin:0;color:var(--muted);}
+.project:hover{box-shadow:0 10px 30px rgba(255,31,46,0.06);transform:translateY(-3px);transition:transform .18s ease, box-shadow .18s ease}
+
+/* Research */
+.publication{padding:0.6rem 0}
+.publication p{margin:0;color:var(--muted)}
+
+/* Contact list */
+.contact-list{list-style:none;padding:0;margin:0.4rem 0 0 0}
+.contact-list li{margin:0.35rem 0;color:var(--muted)}
+
+/* Links: only hover effects */
+a.link{
+  color:var(--accent);
+  text-decoration:none;
+  transition:color .12s ease, text-decoration .12s ease, transform .12s ease;
+}
+a.link:hover{ color:var(--accent-dark); text-decoration:underline; transform:translateY(-1px)}
+
+/* Footer */
+.site-footer{
+  border-top:1px solid rgba(255,255,255,0.03);
+  padding:1rem 0;
+  color:var(--muted);
+  background:transparent;
+}
+.footer-inner{display:flex;justify-content:center}
+
+/* Responsive typography and layout tweaks */
+@media (min-width: 900px){
+  .intro h1{font-size:2rem}
+  .tagline{font-size:1.05rem}
+}
+
+@media (max-width: 420px){
+  .container{padding:1rem}
+  .intro h1{font-size:1.2rem}
+  .role{font-size:0.85rem}
+}
+
+/* Accessibility focus state */
+a.link:focus{outline:2px dashed rgba(255,31,46,0.35);outline-offset:3px}
+

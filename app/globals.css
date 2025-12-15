@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg: #0b0b0b;
+  --neon: #ff003c;
+}
+
+html,body,#__next{height:100%;}
+
+body{background:var(--bg);font-family:Orbitron,'Share Tech Mono',monospace}
+
+.neon-glow{color:var(--neon);text-shadow:0 0 8px rgba(255,0,60,0.8)}
+.neon-focus:focus{outline:2px solid rgba(255,0,60,0.12);box-shadow:0 0 16px rgba(255,0,60,0.12)}
+.neon-focus:hover{box-shadow:0 0 14px rgba(255,0,60,0.06)}
+.neon-glitch{position:relative}
+.neon-glitch::after{content:'';position:absolute;left:2px;top:2px;color:var(--neon);mix-blend-mode:screen;filter:blur(2px);opacity:0.7}
+
+.scanline{background-image:linear-gradient(transparent 92%, rgba(255,255,255,0.01) 93%);background-size:100% 6px}
+
+.blink{animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+.text-neonred{color:var(--neon)}
+
+/* animated subtle grid background */
+.grid-background{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(transparent 1px, rgba(255,0,60,0.02) 1px), linear-gradient(90deg, transparent 1px, rgba(255,0,60,0.02) 1px);background-size:40px 40px, 40px 40px;opacity:0.06;filter:blur(0.6px);animation:moveGrid 12s linear infinite}
+@keyframes moveGrid{from{background-position:0 0,0 0}to{background-position:200px 200px,200px 200px}}
+
+.neon-glow{position:relative;z-index:2}
+.scanline, .border, .p-4{position:relative;z-index:2}
+
+/* small responsive tweaks */
+@media (max-width:640px){
+  .neon-glitch{font-size:2rem}
+}
